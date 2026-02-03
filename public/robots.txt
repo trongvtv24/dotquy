@@ -1,0 +1,12 @@
+# DOTQUY.NHANH - Robots.txt
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Disallow admin routes
+Disallow: /admin
+Disallow: /admin/*
+
+# Sitemap location
+Sitemap: https://dotquy.nhanh/sitemap.xml

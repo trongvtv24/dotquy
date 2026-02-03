@@ -1,0 +1,352 @@
+{
+    "meta": {
+        "schema_version": "1.1.0",
+        "awf_version": "5.0.0",
+        "created_at": "2026-02-02T23:55:00+07:00",
+        "updated_at": "2026-02-03T21:15:00+07:00"
+    },
+    "project": {
+        "name": "DOTQUY.NHANH",
+        "type": "web-app",
+        "description": "Website hỗ trợ nhận biết và phản ứng nhanh với đột quỵ. Emergency-first design với PWA offline support.",
+        "status": "mvp-complete",
+        "repo": "dotquy-nhanh",
+        "path": "C:/Users/Trong/.gemini/antigravity/scratch/dotquy-nhanh"
+    },
+    "tech_stack": {
+        "frontend": {
+            "framework": "Next.js 16.1.6",
+            "language": "TypeScript",
+            "styling": "TailwindCSS 4",
+            "ui_components": "Custom (no library)",
+            "fonts": "Inter (Google Fonts)"
+        },
+        "backend": {
+            "type": "Supabase BaaS",
+            "auth": "Supabase Auth",
+            "database": "PostgreSQL (Supabase)",
+            "api": "Next.js API Routes + Supabase Client"
+        },
+        "database": {
+            "provider": "Supabase",
+            "type": "PostgreSQL",
+            "orm": "Supabase JS Client (no ORM)"
+        },
+        "deployment": {
+            "platform": "Vercel (planned)",
+            "pwa": "next-pwa",
+            "build_tool": "Turbopack (Next.js 16)"
+        }
+    },
+    "database_schema": {
+        "summary": "Lưu trữ: 63 tỉnh/TP VN, số cấp cứu theo tỉnh, bài viết y tế, feedback người dùng, profiles admin",
+        "tables": [
+            {
+                "name": "provinces",
+                "purpose": "63 tỉnh/thành phố Việt Nam",
+                "columns": [
+                    "id (uuid, pk)",
+                    "slug (text, unique)",
+                    "name (text)",
+                    "created_at (timestamp)"
+                ]
+            },
+            {
+                "name": "emergency_contacts",
+                "purpose": "Số cấp cứu BVĐK theo tỉnh, fallback 115",
+                "columns": [
+                    "id (uuid, pk)",
+                    "province_id (uuid, fk -> provinces)",
+                    "hospital_name (text)",
+                    "emergency_phone (text)",
+                    "address (text)",
+                    "map_url (text, nullable)",
+                    "status (text: active|needs_verify|inactive)",
+                    "last_verified_at (timestamp, nullable)",
+                    "source (text, nullable)",
+                    "created_at (timestamp)",
+                    "updated_at (timestamp)"
+                ]
+            },
+            {
+                "name": "content_articles",
+                "purpose": "Bài viết về đột quỵ (learn, prevention, recovery)",
+                "columns": [
+                    "id (uuid, pk)",
+                    "slug (text, unique)",
+                    "title (text)",
+                    "category (text: learn|prevention|recovery)",
+                    "level (text: basic|intermediate|advanced)",
+                    "summary_30s (text)",
+                    "body_md (text)",
+                    "faq_md (text, nullable)",
+                    "status (text: draft|published|archived)",
+                    "created_at (timestamp)",
+                    "updated_at (timestamp)"
+                ]
+            },
+            {
+                "name": "feedback",
+                "purpose": "Góp ý từ người dùng: báo số sai, góp ý nội dung",
+                "columns": [
+                    "id (uuid, pk)",
+                    "type (text: wrong_number|content_suggestion|other)",
+                    "province_id (uuid, fk -> provinces, nullable)",
+                    "article_id (uuid, fk -> content_articles, nullable)",
+                    "message (text)",
+                    "email (text, nullable)",
+                    "status (text: new|reviewed|resolved)",
+                    "created_at (timestamp)"
+                ]
+            },
+            {
+                "name": "profiles",
+                "purpose": "Profile người dùng với quyền admin",
+                "columns": [
+                    "id (uuid, pk, fk -> auth.users)",
+                    "email (text)",
+                    "is_admin (boolean, default false)",
+                    "created_at (timestamp)",
+                    "updated_at (timestamp)"
+                ]
+            },
+            {
+                "name": "analytics_events",
+                "purpose": "Event tracking ẩn danh (optional)",
+                "columns": [
+                    "id (uuid, pk)",
+                    "event_name (text)",
+                    "province_id (uuid, fk -> provinces, nullable)",
+                    "meta (jsonb, nullable)",
+                    "created_at (timestamp)"
+                ]
+            }
+        ],
+        "relationships_explained": "1 province có nhiều emergency_contacts. 1 province có nhiều feedback. Content_articles độc lập. Profiles link với auth.users của Supabase."
+    },
+    "features": [
+        {
+            "name": "Emergency First Homepage",
+            "status": "completed",
+            "description": "Trang chủ tối ưu cho tình huống khẩn cấp: nút gọi lớn, BE FAST quick start",
+            "route": "/"
+        },
+        {
+            "name": "BE FAST Wizard",
+            "status": "completed",
+            "description": "Test 5 bước (B-E-F-A-S-T) để nhận biết dấu hiệu đột quỵ, lưu kết quả vào sessionStorage",
+            "route": "/fast",
+            "component": "FastWizard"
+        },
+        {
+            "name": "Province Selector",
+            "status": "completed",
+            "description": "Chọn tỉnh để hiển thị số cấp cứu địa phương, lưu localStorage, emit custom event",
+            "component": "ProvinceSelector"
+        },
+        {
+            "name": "Time Recorder",
+            "status": "completed",
+            "description": "Ghi lại 'giờ lần cuối bình thường' cho cấp cứu, lưu localStorage",
+            "component": "TimeRecorder"
+        },
+        {
+            "name": "Call Script Generator",
+            "status": "completed",
+            "description": "Hướng dẫn gọi 115 với script chi tiết",
+            "route": "/call-script"
+        },
+        {
+            "name": "What To Do Now",
+            "status": "completed",
+            "description": "Hướng dẫn xử lý khẩn cấp: việc cần làm, KHÔNG làm",
+            "route": "/what-to-do-now"
+        },
+        {
+            "name": "Province Emergency Page",
+            "status": "completed",
+            "description": "Trang chi tiết số cấp cứu theo tỉnh",
+            "route": "/province/[slug]"
+        },
+        {
+            "name": "PWA Offline",
+            "status": "completed",
+            "description": "Trang /offline với thông tin hardcoded khi mất mạng: BE FAST, 115, việc cần làm",
+            "route": "/offline"
+        },
+        {
+            "name": "Admin Panel",
+            "status": "completed",
+            "description": "CRUD cho emergency_contacts với AdminGuard, login, dashboard",
+            "routes": [
+                "/admin",
+                "/admin/login",
+                "/admin/emergency-contacts",
+                "/admin/emergency-contacts/new",
+                "/admin/emergency-contacts/[id]/edit"
+            ]
+        }
+    ],
+    "components_created": {
+        "ui": [
+            "Button (variants: emergency, secondary, ghost, danger, primary, outline)",
+            "Input",
+            "Card (variants: default, emergency, do, dont, outline, filled)",
+            "Badge (variants: default, success, warning, danger, info)",
+            "Toast",
+            "Skeleton (CardSkeleton, PageSkeleton, EmergencyButtonSkeleton)"
+        ],
+        "layout": [
+            "Header",
+            "BottomNav",
+            "Footer",
+            "DisclaimerFooter"
+        ],
+        "emergency": [
+            "FloatingCallButton (dynamic phone từ province)",
+            "ProvinceSelector (modal, search, localStorage)",
+            "TimeRecorder (localStorage, formatTimeDisplay)",
+            "EmergencyBanner",
+            "DoDoNotList"
+        ],
+        "fast": [
+            "FastWizard (5 steps, sessionStorage, result screen)"
+        ],
+        "admin": [
+            "AdminGuard (client-side auth check)",
+            "useAdminUser (hook)"
+        ]
+    },
+    "routes": {
+        "public": [
+            {
+                "path": "/",
+                "type": "static",
+                "description": "Homepage"
+            },
+            {
+                "path": "/emergency",
+                "type": "static",
+                "description": "Emergency info"
+            },
+            {
+                "path": "/fast",
+                "type": "static",
+                "description": "BE FAST wizard"
+            },
+            {
+                "path": "/what-to-do-now",
+                "type": "static",
+                "description": "What to do guide"
+            },
+            {
+                "path": "/call-script",
+                "type": "static",
+                "description": "Call script"
+            },
+            {
+                "path": "/offline",
+                "type": "static",
+                "description": "PWA offline fallback"
+            },
+            {
+                "path": "/province/[slug]",
+                "type": "dynamic",
+                "description": "Province emergency contacts"
+            }
+        ],
+        "admin": [
+            {
+                "path": "/admin",
+                "type": "static",
+                "description": "Dashboard"
+            },
+            {
+                "path": "/admin/login",
+                "type": "static",
+                "description": "Login"
+            },
+            {
+                "path": "/admin/emergency-contacts",
+                "type": "static",
+                "description": "Contacts list"
+            },
+            {
+                "path": "/admin/emergency-contacts/new",
+                "type": "static",
+                "description": "Add contact"
+            },
+            {
+                "path": "/admin/emergency-contacts/[id]/edit",
+                "type": "dynamic",
+                "description": "Edit contact"
+            }
+        ],
+        "system": [
+            {
+                "path": "/auth/callback",
+                "type": "dynamic",
+                "description": "Supabase auth callback"
+            },
+            {
+                "path": "/sitemap.xml",
+                "type": "static",
+                "description": "SEO sitemap"
+            },
+            {
+                "path": "/not-found",
+                "type": "static",
+                "description": "404 page"
+            },
+            {
+                "path": "/error",
+                "type": "static",
+                "description": "Error boundary"
+            }
+        ]
+    },
+    "knowledge_items": {
+        "patterns": [
+            "Emergency-first: Trang chủ phải có thể gọi 115 trong 1 tap",
+            "Fallback 115: Nếu không có số cấp cứu địa phương, luôn dùng 115",
+            "Mobile-first: Buttons tối thiểu 44px, font lớn, high contrast",
+            "Custom events: provinceChanged event để sync components",
+            "Storage utilities: try-catch để handle SSR",
+            "Barrel exports: index.ts cho mỗi component folder"
+        ],
+        "gotchas": [
+            "Supabase client cần type assertion khi query (as Province, as EmergencyContact)",
+            "next-pwa dùng webpack, cần empty turbopack config cho Next.js 16",
+            "Supabase insert/update cần wrap data trong array và dùng 'as any'",
+            "TypeScript errors với Supabase types - dùng type assertions cho profile.is_admin"
+        ],
+        "conventions": [
+            "Barrel exports cho mỗi component folder (index.ts)",
+            "Storage utilities dùng try-catch để handle SSR",
+            "Custom events (provinceChanged) để sync components",
+            "Phone utils: buildTelLink, getEmergencyPhone, formatPhoneDisplay",
+            "Time utils: formatTimeDisplay, getRecordedTime"
+        ]
+    },
+    "business_rules": [
+        "Luôn fallback về 115 nếu không tìm thấy số cấp cứu địa phương",
+        "Emergency contacts có 3 trạng thái: active, needs_verify, inactive",
+        "Chỉ hiển thị contacts active/needs_verify cho public",
+        "Content articles chỉ hiển thị khi status = published",
+        "Admin routes được bảo vệ bởi AdminGuard (check is_admin từ profiles)",
+        "FastWizard lưu kết quả vào sessionStorage (không persist giữa sessions)",
+        "Province selection lưu vào localStorage và emit custom event",
+        "Time recorder lưu 'lastKnownWell' vào localStorage"
+    ],
+    "deployment_notes": {
+        "environment_variables": [
+            "NEXT_PUBLIC_SUPABASE_URL",
+            "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+            "SUPABASE_SERVICE_ROLE_KEY (server-side only)"
+        ],
+        "build_command": "npm run build",
+        "dev_command": "npm run dev",
+        "pwa_notes": "Service worker chỉ generate khi build production. Dev mode PWA disabled.",
+        "icons_todo": "Cần generate PNG icons (192x192, 512x512) từ SVG cho production PWA"
+    }
+}
