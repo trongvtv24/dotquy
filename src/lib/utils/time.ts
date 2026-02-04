@@ -1,6 +1,6 @@
 /**
- * Time Utilities
- * Format và xử lý thời gian cho "Giờ lần cuối bình thường"
+ * Time Utilities (Simplified)
+ * Format và xử lý thời gian
  */
 
 /**
@@ -50,33 +50,4 @@ export function getElapsedTime(timestamp: Date | string): string {
 
     if (minutes === 0) return `${hours} giờ trước`
     return `${hours} giờ ${minutes} phút trước`
-}
-
-/**
- * Format cho call script
- * VD: "Lần cuối bình thường lúc 14:30 (khoảng 2 giờ trước)"
- */
-export function formatForCallScript(timestamp: Date | string): string {
-    const time = formatTimeShort(timestamp)
-    const elapsed = getElapsedTime(timestamp)
-
-    return `Lần cuối bình thường lúc ${time} (${elapsed})`
-}
-
-/**
- * Get recorded time from localStorage (wrapper for storage functions)
- * Returns the timestamp string or null if not set
- */
-export function getRecordedTime(): string | null {
-    if (typeof window === 'undefined') return null
-
-    try {
-        const data = localStorage.getItem('lastKnownWell')
-        if (!data) return null
-
-        const parsed = JSON.parse(data)
-        return parsed?.timestamp || null
-    } catch {
-        return null
-    }
 }

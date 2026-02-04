@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { DoDoNotList, TimeRecorder } from '@/components/emergency'
+import { DoDoNotList } from '@/components/emergency'
 import { Button } from '@/components/ui'
 
 export const metadata: Metadata = {
@@ -27,8 +27,11 @@ export default function WhatToDoNowPage() {
                     🚨 VIỆC ĐẦU TIÊN: GỌI CẤP CỨU
                 </p>
                 <p className="text-sm opacity-90">
-                    Gọi 115 hoặc số cấp cứu địa phương ngay lập tức
+                    Gọi 115 ngay lập tức
                 </p>
+                <a href="tel:115" className="inline-block mt-3 bg-white text-[--emergency-red] px-6 py-2 rounded-lg font-bold">
+                    📞 Gọi 115 ngay
+                </a>
             </div>
 
             {/* DO / DON'T Full List */}
@@ -36,21 +39,19 @@ export default function WhatToDoNowPage() {
                 <DoDoNotList variant="full" />
             </section>
 
-            {/* Time Importance */}
+            {/* Time Importance - Simplified */}
             <section className="mb-8">
                 <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
                     🕐 Ghi nhớ thời gian quan trọng
                 </h2>
-                <div className="bg-[--muted] rounded-xl p-4 mb-4">
+                <div className="bg-[--muted] rounded-xl p-4">
                     <p className="text-[--muted-foreground] mb-3">
                         Bác sĩ sẽ hỏi: <strong className="text-[--foreground]">&quot;Lần cuối bệnh nhân bình thường là lúc nào?&quot;</strong>
                     </p>
                     <p className="text-sm text-[--muted-foreground]">
-                        Thông tin này rất quan trọng để quyết định phương pháp điều trị.
-                        Ghi nhớ hoặc lưu lại ngay!
+                        💡 <strong>Mẹo:</strong> Ghi vào giấy hoặc nhớ trong đầu ngay lập tức!
                     </p>
                 </div>
-                <TimeRecorder />
             </section>
 
             {/* Additional Tips */}

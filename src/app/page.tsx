@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ProvinceSelector, TimeRecorder, DoDoNotList, EmergencyBanner } from '@/components/emergency'
+import { DoDoNotList, EmergencyBanner, FloatingCallButton } from '@/components/emergency'
 import { FastWizard } from '@/components/fast'
 import { Button, Card } from '@/components/ui'
 import { useState, useEffect } from 'react'
@@ -37,37 +37,41 @@ export default function HomePage() {
       )}
 
       {/* Hero Section */}
-      <section className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-[--foreground] mb-3">
+      <section className="text-center mb-10 pt-4">
+        <h1 className="text-4xl md:text-5xl font-black text-[--foreground] mb-4 leading-tight">
           🚨 NGHI ĐỘT QUỴ?
         </h1>
-        <p className="text-lg text-[--muted-foreground] mb-2">
+        <p className="text-xl md:text-2xl text-[--muted-foreground] mb-6">
           <strong className="text-[--emergency-red]">Đừng chờ &quot;xem sao&quot;.</strong>
-        </p>
-        <p className="text-[--muted-foreground]">
+          <br />
           Mỗi phút trì hoãn đều quan trọng.
         </p>
-      </section>
 
-      {/* Province Selector */}
-      <section className="mb-8">
-        <ProvinceSelector showLabel className="w-full" />
-      </section>
+        {/* Primary Call Action */}
+        <div className="mb-8 max-w-sm mx-auto">
+          <FloatingCallButton mode="inline" size="lg" className="w-full" />
+        </div>
 
-      {/* Quick Actions */}
-      <section className="grid grid-cols-1 gap-4 mb-8">
+        {/* Secondary Action: BE FAST */}
         <Button
           variant="secondary"
           size="lg"
-          className="w-full text-lg py-6"
+          className="w-full max-w-sm text-lg py-6 border-2 border-[--primary] text-[--primary] font-bold hover:bg-[--primary] hover:text-white transition-all transform hover:scale-105"
           onClick={() => setShowFastWizard(true)}
         >
           ⚡ Bắt đầu BE FAST (15 giây)
         </Button>
+      </section>
 
+      {/* Quick Links */}
+      <section className="grid grid-cols-1 gap-4 mb-8">
         <Link href="/what-to-do-now" className="block">
-          <Button variant="outline" size="lg" className="w-full">
-            ✅ Tôi nên làm gì trong lúc chờ?
+          <Button variant="outline" size="lg" className="w-full py-6 text-lg justify-start px-6 border-2">
+            <span className="mr-3 text-2xl">✅</span>
+            <div className="text-left">
+              <div className="font-bold">Làm gì trong lúc chờ?</div>
+              <div className="text-xs font-normal text-[--muted-foreground]">Hướng dẫn sơ cứu & checklist</div>
+            </div>
           </Button>
         </Link>
       </section>
@@ -144,14 +148,6 @@ export default function HomePage() {
             Xem chi tiết hơn →
           </Button>
         </Link>
-      </section>
-
-      {/* Time Recorder */}
-      <section className="mb-8">
-        <h2 className="text-xl font-bold mb-4">
-          🕐 Ghi nhớ thời gian quan trọng
-        </h2>
-        <TimeRecorder />
       </section>
 
       {/* Quick Links */}

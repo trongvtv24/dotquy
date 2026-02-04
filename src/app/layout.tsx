@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header, BottomNav, DisclaimerFooter } from "@/components/layout";
-import { FloatingCallButton } from "@/components/emergency";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -45,17 +44,12 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased bg-[--background] text-[--foreground]`}>
         <Header />
 
-        <main className="min-h-screen pb-24 md:pb-8">
+        <main className="min-h-screen pb-32 md:pb-8">
           {children}
         </main>
 
         <DisclaimerFooter />
         <BottomNav />
-
-        {/* Floating Call Button - Fixed position */}
-        <div className="fixed bottom-20 left-4 right-4 z-50 md:bottom-6 md:left-auto md:right-6 md:w-72">
-          <FloatingCallButton size="lg" />
-        </div>
       </body>
     </html>
   );

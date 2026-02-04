@@ -1,11 +1,9 @@
 /**
- * LocalStorage Utilities
+ * LocalStorage Utilities (Simplified)
  * Type-safe helpers cho localStorage operations
  */
 
 const STORAGE_KEYS = {
-    SELECTED_PROVINCE: 'selectedProvinceSlug',
-    LAST_KNOWN_WELL: 'lastKnownWell',
     FAST_ANSWERS: 'fastAnswers',
 } as const
 
@@ -32,7 +30,7 @@ export function setStorageItem<T>(key: string, value: T): void {
     try {
         localStorage.setItem(key, JSON.stringify(value))
     } catch {
-        console.warn('Failed to save to localStorage:', key)
+        // Silently fail - localStorage might be full or disabled
     }
 }
 
@@ -45,39 +43,8 @@ export function removeStorageItem(key: string): void {
     try {
         localStorage.removeItem(key)
     } catch {
-        console.warn('Failed to remove from localStorage:', key)
+        // Silently fail
     }
-}
-
-// Province storage helpers
-export function getSelectedProvinceSlug(): string | null {
-    return getStorageItem<string | null>(STORAGE_KEYS.SELECTED_PROVINCE, null)
-}
-
-export function setSelectedProvinceSlug(slug: string): void {
-    setStorageItem(STORAGE_KEYS.SELECTED_PROVINCE, slug)
-}
-
-export function clearSelectedProvince(): void {
-    removeStorageItem(STORAGE_KEYS.SELECTED_PROVINCE)
-}
-
-// Last Known Well storage helpers
-export interface LastKnownWellData {
-    timestamp: string // ISO string
-    isManual: boolean
-}
-
-export function getLastKnownWell(): LastKnownWellData | null {
-    return getStorageItem<LastKnownWellData | null>(STORAGE_KEYS.LAST_KNOWN_WELL, null)
-}
-
-export function setLastKnownWell(data: LastKnownWellData): void {
-    setStorageItem(STORAGE_KEYS.LAST_KNOWN_WELL, data)
-}
-
-export function clearLastKnownWell(): void {
-    removeStorageItem(STORAGE_KEYS.LAST_KNOWN_WELL)
 }
 
 // FAST answers (sessionStorage for wizard state)
@@ -106,7 +73,7 @@ export function setFastAnswers(answers: FastAnswers): void {
     try {
         sessionStorage.setItem(STORAGE_KEYS.FAST_ANSWERS, JSON.stringify(answers))
     } catch {
-        console.warn('Failed to save FAST answers')
+        // Silently fail
     }
 }
 

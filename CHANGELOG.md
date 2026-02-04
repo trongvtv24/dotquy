@@ -4,6 +4,67 @@ Tất cả thay đổi quan trọng của dự án sẽ được ghi lại ở �
 
 ---
 
+## [0.2.1] - 2026-02-05
+
+### 🧹 Deep Clean - Code Audit & Cleanup
+
+**Removed (Dead Code):**
+- ❌ `src/lib/supabase/` - Toàn bộ Supabase client/server/admin code
+- ❌ `src/lib/types/database.ts` - Database types không còn dùng
+- ❌ `src/lib/hooks/` - Empty folder
+- ❌ `src/components/emergency/ProvinceSelector.tsx` - Province selector
+- ❌ `src/components/emergency/TimeRecorder.tsx` - Time recorder
+- ❌ `src/components/layout/Footer.tsx` - Unused footer
+
+**Simplified:**
+- 🔧 `src/lib/utils/storage.ts` - Chỉ giữ FAST answers functions
+- 🔧 `src/lib/utils/time.ts` - Xóa getRecordedTime
+- 🔧 `src/lib/utils/phone.ts` - Đơn giản hóa, chỉ giữ buildTelLink
+
+**Fixed:**
+- 🐛 Header overlay issue - Added backdrop-blur
+- 🐛 BottomNav covering content - Added safe-area-inset
+- 🐛 Main content padding - Increased to pb-32
+
+**UI Improvements:**
+- ✨ Added call 115 button in what-to-do-now page
+- ✨ Cleaner responsive design tested (320px → 1920px)
+
+**Audit Results:**
+- 🔴 Critical: 0
+- 🟡 Warnings: 4 → 0 (all fixed)
+- 🟢 Suggestions: 3
+
+---
+
+## [0.2.0] - 2026-02-04
+
+### 🎯 Scope Simplified - Emergency Focus Only
+
+**BREAKING CHANGES:**
+- ❌ Removed province/local emergency number feature
+- ❌ Removed admin authentication and management
+- ❌ Removed TimeRecorder component
+- ❌ Removed Supabase database dependencies
+
+**✨ New Features:**
+- ✅ Hardcoded 115 emergency number (nationwide)
+- ✅ Simplified FloatingCallButton (no database calls)
+- ✅ Updated navigation (Home, BE FAST, What to do)
+
+**📝 What's kept:**
+- ✅ BE FAST Test wizard (5 steps)
+- ✅ DO/DON'T emergency guidelines
+- ✅ Call script generator
+- ✅ PWA offline support
+
+**🎨 UI Improvements:**
+- Cleaner homepage layout
+- Better mobile navigation
+- Removed complex forms
+
+---
+
 ## [2026-02-03] - MVP Complete 🎉
 
 ### Added - Phase 01: Setup

@@ -6,14 +6,14 @@ import { useState } from 'react'
 const navItems = [
     { href: '/', label: 'Trang chủ' },
     { href: '/fast', label: 'Test BE FAST' },
-    { href: '/learn', label: 'Tìm hiểu' },
+    { href: '/what-to-do-now', label: 'Cách xử lý' },
 ]
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
-        <header className="sticky top-0 z-40 bg-[--background] border-b border-[--border]">
+        <header className="sticky top-0 z-40 bg-[--background]/95 backdrop-blur-sm border-b border-[--border]">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -57,7 +57,7 @@ export function Header() {
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <nav className="md:hidden py-4 border-t border-[--border]">
+                    <nav className="md:hidden py-4 border-t border-[--border] bg-[--background]">
                         {navItems.map(item => (
                             <Link
                                 key={item.href}

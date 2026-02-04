@@ -1,9 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Button, Card, Input } from '@/components/ui'
-import { getRecordedTime } from '@/lib/utils/time'
-import { getSelectedProvinceSlug } from '@/lib/utils/storage'
 import Link from 'next/link'
 
 interface CallScriptData {
@@ -36,22 +34,6 @@ export default function CallScriptPage() {
         lastNormalTime: '',
     })
     const [copied, setCopied] = useState(false)
-
-    // Load saved time from TimeRecorder
-    useEffect(() => {
-        const savedTime = getRecordedTime()
-        if (savedTime) {
-            // Format to readable string
-            const date = new Date(savedTime)
-            const formatted = date.toLocaleString('vi-VN', {
-                hour: '2-digit',
-                minute: '2-digit',
-                day: '2-digit',
-                month: '2-digit',
-            })
-            setData(prev => ({ ...prev, lastNormalTime: formatted }))
-        }
-    }, [])
 
     const toggleSymptom = (symptomId: string) => {
         setData(prev => ({
@@ -162,8 +144,8 @@ export default function CallScriptPage() {
                                             type="button"
                                             onClick={() => setData(prev => ({ ...prev, patientGender: 'male' }))}
                                             className={`flex-1 py-2.5 px-3 rounded-lg border font-medium transition-colors ${data.patientGender === 'male'
-                                                    ? 'bg-[--primary] text-[--primary-foreground] border-[--primary]'
-                                                    : 'bg-[--background] border-[--border] hover:border-[--primary]'
+                                                ? 'bg-[--primary] text-[--primary-foreground] border-[--primary]'
+                                                : 'bg-[--background] border-[--border] hover:border-[--primary]'
                                                 }`}
                                         >
                                             Nam
@@ -172,8 +154,8 @@ export default function CallScriptPage() {
                                             type="button"
                                             onClick={() => setData(prev => ({ ...prev, patientGender: 'female' }))}
                                             className={`flex-1 py-2.5 px-3 rounded-lg border font-medium transition-colors ${data.patientGender === 'female'
-                                                    ? 'bg-[--primary] text-[--primary-foreground] border-[--primary]'
-                                                    : 'bg-[--background] border-[--border] hover:border-[--primary]'
+                                                ? 'bg-[--primary] text-[--primary-foreground] border-[--primary]'
+                                                : 'bg-[--background] border-[--border] hover:border-[--primary]'
                                                 }`}
                                         >
                                             Nữ
@@ -195,8 +177,8 @@ export default function CallScriptPage() {
                                     type="button"
                                     onClick={() => toggleSymptom(symptom.id)}
                                     className={`p-3 rounded-lg border text-left font-medium transition-colors ${data.symptoms.includes(symptom.id)
-                                            ? 'bg-[--emergency-red] text-white border-[--emergency-red]'
-                                            : 'bg-[--background] border-[--border] hover:border-[--emergency-red]'
+                                        ? 'bg-[--emergency-red] text-white border-[--emergency-red]'
+                                        : 'bg-[--background] border-[--border] hover:border-[--emergency-red]'
                                         }`}
                                 >
                                     {data.symptoms.includes(symptom.id) ? '✓ ' : '○ '}
@@ -214,9 +196,6 @@ export default function CallScriptPage() {
                             <div>
                                 <label className="block text-sm font-medium mb-1.5">
                                     Lần cuối bình thường
-                                    {data.lastNormalTime && (
-                                        <span className="text-green-600 ml-2">(đã tự động điền từ TimeRecorder)</span>
-                                    )}
                                 </label>
                                 <Input
                                     type="text"

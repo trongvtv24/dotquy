@@ -4,10 +4,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const navItems = [
-    { href: '/', label: 'Cấp cứu', icon: '🚨' },
+    { href: '/', label: 'Trang chủ', icon: '🏠' },
     { href: '/fast', label: 'BE FAST', icon: '⚡' },
     { href: '/what-to-do-now', label: 'Làm gì', icon: '✓' },
-    { href: '/learn', label: 'Học', icon: '📚' },
 ]
 
 export function BottomNav() {
@@ -15,8 +14,9 @@ export function BottomNav() {
 
     return (
         <nav
-            className="fixed bottom-0 left-0 right-0 z-40 bg-[--background] border-t border-[--border] md:hidden"
+            className="fixed bottom-0 left-0 right-0 z-40 bg-[--background]/95 backdrop-blur-sm border-t border-[--border] md:hidden safe-area-pb"
             aria-label="Bottom navigation"
+            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
             <div className="flex justify-around items-center h-16 px-2">
                 {navItems.map(item => {

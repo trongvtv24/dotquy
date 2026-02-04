@@ -1,69 +1,84 @@
 {
-    "updated_at": "2026-02-03T21:15:00+07:00",
+    "updated_at": "2026-02-05T00:03:00+07:00",
     "working_on": {
-        "feature": "DOTQUY.NHANH MVP",
+        "feature": "Deep Clean & Audit",
         "current_phase": "COMPLETED",
-        "current_task": "All phases completed!",
-        "status": "ready_to_deploy",
-        "files_modified": [
-            "src/app/not-found.tsx",
-            "src/app/error.tsx",
-            "src/app/loading.tsx",
-            "src/app/sitemap.ts",
-            "src/app/admin/loading.tsx",
-            "src/components/ui/Skeleton.tsx",
-            "src/components/ui/index.ts",
-            "public/robots.txt"
-        ]
+        "current_task": "Save Brain",
+        "status": "completed",
+        "files_modified": []
     },
     "progress": {
         "phases_completed": [
-            "phase-01",
-            "phase-02",
-            "phase-03",
-            "phase-04",
-            "phase-05",
-            "phase-06"
+            "mvp-development",
+            "simplification-v0.2.0",
+            "ui-fixes",
+            "deep-clean-v0.2.1"
         ],
         "phases_remaining": [],
         "percentage": 100
     },
-    "mvp_summary": {
-        "total_routes": 15,
-        "static_routes": 12,
-        "dynamic_routes": 3,
-        "components_count": 20,
-        "features": [
-            "Emergency-first homepage",
-            "BE FAST symptom checker (FastWizard)",
-            "Province-based emergency contacts",
-            "Time recorder for emergency",
-            "Call script generator",
-            "Admin Panel with CRUD",
-            "PWA with offline support",
-            "SEO (sitemap, robots.txt)",
-            "Error handling (404, 500)"
-        ]
+    "recent_changes": [
+        {
+            "timestamp": "2026-02-05T00:00:00+07:00",
+            "type": "cleanup",
+            "description": "Deep Clean: Xóa Supabase, Province, TimeRecorder, Footer",
+            "files_deleted": [
+                "src/lib/supabase/*",
+                "src/lib/types/database.ts",
+                "src/lib/hooks/",
+                "src/components/emergency/ProvinceSelector.tsx",
+                "src/components/emergency/TimeRecorder.tsx",
+                "src/components/layout/Footer.tsx"
+            ]
+        },
+        {
+            "timestamp": "2026-02-04T23:50:00+07:00",
+            "type": "ui_fix",
+            "description": "Fixed overlay issues: Header backdrop-blur, BottomNav safe-area, pb-32",
+            "files": [
+                "src/app/layout.tsx",
+                "src/components/layout/Header.tsx",
+                "src/components/layout/BottomNav.tsx"
+            ]
+        },
+        {
+            "timestamp": "2026-02-04T23:40:00+07:00",
+            "type": "refactor",
+            "description": "Simplified scope: Removed DB/Admin, Hardcoded 115",
+            "files": [
+                "src/app/page.tsx",
+                "src/components/emergency/FloatingCallButton.tsx"
+            ]
+        }
+    ],
+    "audit_results": {
+        "date": "2026-02-04",
+        "critical": 0,
+        "warnings": 4,
+        "suggestions": 3,
+        "all_fixed": true
     },
     "next_steps": [
-        "Setup Supabase project and run migrations",
-        "Generate Supabase types: supabase gen types typescript",
-        "Generate PNG icons from SVG for PWA",
-        "Deploy to Vercel with /deploy workflow",
-        "Configure custom domain"
+        "Deploy to Vercel/Production",
+        "Test on real devices",
+        "Generate PWA icons"
     ],
     "decisions_made": [
         {
-            "decision": "Custom components instead of library",
-            "reason": "Optimized for emergency use case, smaller bundle"
+            "decision": "Remove all Supabase code",
+            "reason": "Simplification - no database needed for MVP"
         },
         {
-            "decision": "Hardcoded offline page",
-            "reason": "Always available, no network dependency"
+            "decision": "Hardcode 115 instead of dynamic number",
+            "reason": "Faster, no network dependency"
         },
         {
-            "decision": "Type assertions for Supabase",
-            "reason": "Database types not generated yet, workaround"
+            "decision": "Remove TimeRecorder component",
+            "reason": "Not essential for MVP, simplify UX"
+        },
+        {
+            "decision": "Keep tablet (768px) using mobile UI",
+            "reason": "Mobile UI works well on tablet, no need to change breakpoint"
         }
     ]
 }
