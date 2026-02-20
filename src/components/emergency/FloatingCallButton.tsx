@@ -49,10 +49,7 @@ export function FloatingCallButton({
                 </span>
             </a>
 
-            {/* Sub text */}
-            <p className="text-center text-sm text-[--muted-foreground] mt-2">
-                Số cấp cứu toàn quốc
-            </p>
+
         </div>
     )
 }

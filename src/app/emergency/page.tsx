@@ -30,9 +30,7 @@ export default function EmergencyPage() {
                     <span>📞</span>
                     <span>115</span>
                 </a>
-                <p className="text-center mt-3 text-[--muted-foreground]">
-                    Số cấp cứu toàn quốc
-                </p>
+
             </div>
 
             {/* Quick Reminders */}
