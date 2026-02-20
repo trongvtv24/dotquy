@@ -47,10 +47,7 @@ export default function HomePage() {
           Mỗi phút trì hoãn đều quan trọng.
         </p>
 
-        {/* Primary Call Action */}
-        <div className="mb-8 max-w-sm mx-auto">
-          <FloatingCallButton mode="inline" size="lg" className="w-full" />
-        </div>
+
 
         {/* Secondary Action: BE FAST */}
         <Button

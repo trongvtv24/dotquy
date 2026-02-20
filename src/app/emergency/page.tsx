@@ -20,18 +20,7 @@ export default function EmergencyPage() {
                 </p>
             </div>
 
-            {/* 115 Big Number */}
-            <div className="mb-8">
-                <a
-                    href="tel:115"
-                    className="inline-flex items-center justify-center gap-4 bg-[--emergency-red] hover:bg-[--emergency-red-dark] text-white text-5xl md:text-6xl font-bold px-12 py-6 rounded-2xl shadow-xl transition-transform hover:scale-105"
-                    aria-label="Gọi 115"
-                >
-                    <span>📞</span>
-                    <span>115</span>
-                </a>
 
-            </div>
 
             {/* Quick Reminders */}
             <div className="max-w-md w-full space-y-4 mb-8">
