@@ -31,7 +31,7 @@ export default function EmergencyPage() {
                     <ul className="space-y-2 text-[--foreground]">
                         <li className="flex items-start gap-2">
                             <span className="text-green-600">•</span>
-                            <span>Gọi cấp cứu ngay lập tức</span>
+                            <span>Đi cấp cứu ngay lập tức</span>
                         </li>
                         <li className="flex items-start gap-2">
                             <span className="text-green-600">•</span>

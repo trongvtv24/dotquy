@@ -97,9 +97,6 @@ export default function CallScriptPage() {
                 <h1 className="text-2xl md:text-3xl font-bold text-[--foreground] mb-2">
                     📞 Nói gì khi gọi cấp cứu?
                 </h1>
-                <p className="text-[--muted-foreground]">
-                    Tạo script nhanh để gọi điện cho cấp cứu
-                </p>
             </div>
 
             {step === 'form' ? (
@@ -176,9 +173,9 @@ export default function CallScriptPage() {
                                     key={symptom.id}
                                     type="button"
                                     onClick={() => toggleSymptom(symptom.id)}
-                                    className={`p-3 rounded-lg border text-left font-medium transition-colors ${data.symptoms.includes(symptom.id)
-                                        ? 'bg-[--emergency-red] text-white border-[--emergency-red]'
-                                        : 'bg-[--background] border-[--border] hover:border-[--emergency-red]'
+                                    className={`p-3 rounded-lg border text-left transition-colors ${data.symptoms.includes(symptom.id)
+                                        ? 'bg-[--emergency-red]/10 text-[--emergency-red] border-[--emergency-red] font-bold'
+                                        : 'bg-[--background] border-[--border] hover:border-[--emergency-red] font-medium'
                                         }`}
                                 >
                                     {data.symptoms.includes(symptom.id) ? '✓ ' : '○ '}
@@ -219,14 +216,14 @@ export default function CallScriptPage() {
 
                     {/* Submit */}
                     <Button type="submit" variant="primary" size="lg" className="w-full">
-                        Tạo script gọi cấp cứu →
+                        Tiếp theo →
                     </Button>
                 </form>
             ) : (
                 <div>
                     {/* Generated Script */}
                     <Card variant="filled" className="p-4 mb-4">
-                        <h2 className="font-bold mb-3">📋 Script của bạn</h2>
+                        <h2 className="font-bold mb-3">📋 Điều cần nói của bạn</h2>
                         <div className="bg-[--background] border border-[--border] rounded-lg p-4 whitespace-pre-line text-[--foreground]">
                             {generateScript()}
                         </div>
@@ -240,21 +237,8 @@ export default function CallScriptPage() {
                             className="w-full"
                             onClick={copyScript}
                         >
-                            {copied ? '✓ Đã copy!' : '📋 Copy script'}
+                            {copied ? '✓ Đã copy!' : '📋 Copy điều cần nói'}
                         </Button>
-
-                        <a
-                            href="tel:115"
-                            className="block w-full"
-                        >
-                            <Button
-                                variant="danger"
-                                size="lg"
-                                className="w-full"
-                            >
-                                📞 Gọi 115 ngay
-                            </Button>
-                        </a>
 
                         <Button
                             variant="outline"
@@ -272,7 +256,7 @@ export default function CallScriptPage() {
                         <ul className="text-sm text-[--muted-foreground] space-y-1">
                             <li>• Nói rõ ràng, chậm rãi</li>
                             <li>• Bình tĩnh, không hoảng loạn</li>
-                            <li>• Đọc script hoặc nhìn vào để nhớ</li>
+                            <li>• Đọc nội dung hoặc nhìn vào để nhớ</li>
                             <li>• Nghe hướng dẫn từ tổng đài</li>
                         </ul>
                     </div>

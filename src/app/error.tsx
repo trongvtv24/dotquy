@@ -51,14 +51,14 @@ export default function Error({
                 {/* Emergency reminder */}
                 <div className="mt-8 p-4 bg-[--muted] rounded-xl inline-block">
                     <p className="text-sm text-[--muted-foreground] mb-2">
-                        Cần cấp cứu?
+                        Nếu có triệu chứng đột quỵ
                     </p>
-                    <a
-                        href="tel:115"
+                    <Link
+                        href="/call-script"
                         className="inline-block px-6 py-3 bg-[--emergency-red] text-white rounded-xl font-bold"
                     >
-                        📞 Gọi 115
-                    </a>
+                        🚑 Đi cấp cứu ngay
+                    </Link>
                 </div>
             </div>
         </div>

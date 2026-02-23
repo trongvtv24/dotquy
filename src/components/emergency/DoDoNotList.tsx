@@ -1,7 +1,7 @@
 import { Card, CardTitle, CardContent } from '@/components/ui'
 
 const DO_ITEMS = [
-    { icon: '📞', text: 'Gọi cấp cứu 115 hoặc số địa phương' },
+    { icon: '🚑', text: 'Đi cấp cứu ngay lập tức' },
     { icon: '⏰', text: 'Ghi lại giờ khởi phát / lần cuối bình thường' },
     { icon: '🛏️', text: 'Để người bệnh nằm yên, đầu hơi cao' },
     { icon: '👀', text: 'Theo dõi ý thức và hơi thở' },

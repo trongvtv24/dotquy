@@ -30,12 +30,12 @@ export default function OfflinePage() {
                     🚨 GỌI CẤP CỨU NGAY
                 </h1>
 
-                <a
-                    href="tel:115"
-                    className="block w-full bg-[--emergency-red] text-white text-center py-6 rounded-2xl text-3xl font-bold shadow-lg active:bg-[--emergency-red-dark] mb-4"
+                <Link
+                    href="/call-script"
+                    className="block w-full bg-[--emergency-red] text-white text-center py-6 rounded-2xl text-2xl font-bold shadow-lg active:bg-[--emergency-red-dark] mb-4"
                 >
-                    📞 115
-                </a>
+                    🚑 ĐI CẤP CỨU NGAY
+                </Link>
 
                 <p className="text-center text-[--muted-foreground] text-sm">
                     Đường dây nóng cấp cứu y tế toàn quốc
@@ -102,7 +102,7 @@ export default function OfflinePage() {
                             <span className="text-2xl font-bold w-10">T</span>
                             <div>
                                 <p className="font-bold">Time - Thời gian</p>
-                                <p className="text-sm opacity-90">GỌI 115 NGAY! Mỗi phút đều quan trọng</p>
+                                <p className="text-sm opacity-90">ĐI CẤP CỨU NGAY! Mỗi phút đều quan trọng</p>
                             </div>
                         </div>
                     </div>
@@ -116,7 +116,7 @@ export default function OfflinePage() {
                 <div className="bg-[--muted] rounded-xl p-4 space-y-3">
                     <div className="flex items-start gap-3">
                         <span className="text-green-500">✓</span>
-                        <p>GỌI 115 ngay lập tức</p>
+                        <p>ĐI CẤP CỨU ngay lập tức</p>
                     </div>
                     <div className="flex items-start gap-3">
                         <span className="text-green-500">✓</span>

@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const navItems = [
-    { href: '/', label: 'Trang chủ' },
     { href: '/fast', label: 'Test BE FAST' },
     { href: '/what-to-do-now', label: 'Cách xử lý' },
+    { href: '/experience', label: 'Kinh nghiệm thực tế' },
 ]
 
 export function Header() {
@@ -19,10 +19,10 @@ export function Header() {
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="flex items-center gap-2 text-[--emergency-red] font-bold text-xl"
+                        className="flex items-center gap-2 text-[--emergency-red] font-bold text-xl uppercase tracking-tight"
                     >
                         <span className="text-2xl">🚨</span>
-                        <span>DOTQUY.NHANH</span>
+                        <span>TEST ĐỘT QUỴ NGAY</span>
                     </Link>
 
                     {/* Desktop Navigation */}

@@ -29,8 +29,8 @@ export function EmergencyBanner({
 
                 {showCallButton && (
                     <div className="flex items-center gap-3">
-                        <a
-                            href={`tel:${phone}`}
+                        <Link
+                            href="/call-script"
                             className="
                 inline-flex items-center gap-2
                 bg-white text-[--emergency-red]
@@ -40,19 +40,7 @@ export function EmergencyBanner({
                 min-h-[48px]
               "
                         >
-                            📞 Gọi {phone}
-                        </a>
-
-                        <Link
-                            href="/what-to-do-now"
-                            className="
-                inline-flex items-center
-                text-white underline
-                hover:no-underline
-                min-h-[44px]
-              "
-                        >
-                            Làm gì tiếp?
+                            📞 Nói gì khi gọi?
                         </Link>
                     </div>
                 )}
@@ -78,9 +66,9 @@ export function EmergencyBannerCompact({
         >
             <span className="font-medium">
                 🚨 Nghi đột quỵ?
-                <a href="tel:115" className="underline font-bold ml-2 hover:no-underline">
-                    Gọi 115 ngay!
-                </a>
+                <Link href="/call-script" className="underline font-bold ml-2 hover:no-underline">
+                    Hãy đi cấp cứu ngay!
+                </Link>
             </span>
         </div>
     )

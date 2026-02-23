@@ -50,14 +50,15 @@ export default function HomePage() {
 
 
         {/* Secondary Action: BE FAST */}
-        <Button
-          variant="secondary"
-          size="lg"
-          className="w-full max-w-sm text-lg py-6 border-2 border-[--primary] text-[--primary] font-bold hover:bg-[--primary] hover:text-white transition-all transform hover:scale-105"
-          onClick={() => setShowFastWizard(true)}
-        >
-          ⚡ Bắt đầu BE FAST (15 giây)
-        </Button>
+        <Link href="/fast" className="block w-full max-w-sm mx-auto">
+          <Button
+            variant="secondary"
+            size="lg"
+            className="w-full text-lg py-6 border-2 border-[--primary] text-[--primary] font-bold hover:bg-[--primary] hover:text-white transition-all transform hover:scale-105"
+          >
+            ⚡ Bắt đầu BE FAST (15 giây)
+          </Button>
+        </Link>
       </section>
 
       {/* Quick Links */}
@@ -108,27 +109,32 @@ export default function HomePage() {
             <div className="bg-[--muted] rounded-lg p-2">
               <div className="text-2xl mb-1">🧍</div>
               <div className="font-bold text-[--emergency-red]">B</div>
-              <div className="text-xs text-[--muted-foreground]">Balance</div>
+              <div className="text-xs text-[--muted-foreground] whitespace-nowrap overflow-hidden">Balance</div>
+              <div className="text-[10px] font-medium leading-tight">Thăng bằng</div>
             </div>
             <div className="bg-[--muted] rounded-lg p-2">
               <div className="text-2xl mb-1">👁️</div>
               <div className="font-bold text-[--emergency-red]">E</div>
-              <div className="text-xs text-[--muted-foreground]">Eyes</div>
+              <div className="text-xs text-[--muted-foreground] whitespace-nowrap overflow-hidden">Eyes</div>
+              <div className="text-[10px] font-medium leading-tight">Thị giác</div>
             </div>
             <div className="bg-[--muted] rounded-lg p-2">
               <div className="text-2xl mb-1">😮</div>
               <div className="font-bold text-[--emergency-red]">F</div>
-              <div className="text-xs text-[--muted-foreground]">Face</div>
+              <div className="text-xs text-[--muted-foreground] whitespace-nowrap overflow-hidden">Face</div>
+              <div className="text-[10px] font-medium leading-tight">Khuôn mặt</div>
             </div>
             <div className="bg-[--muted] rounded-lg p-2">
               <div className="text-2xl mb-1">💪</div>
               <div className="font-bold text-[--emergency-red]">A</div>
-              <div className="text-xs text-[--muted-foreground]">Arm</div>
+              <div className="text-xs text-[--muted-foreground] whitespace-nowrap overflow-hidden">Arm</div>
+              <div className="text-[10px] font-medium leading-tight">Cánh tay</div>
             </div>
             <div className="bg-[--muted] rounded-lg p-2">
               <div className="text-2xl mb-1">🗣️</div>
               <div className="font-bold text-[--emergency-red]">S</div>
-              <div className="text-xs text-[--muted-foreground]">Speech</div>
+              <div className="text-xs text-[--muted-foreground] whitespace-nowrap overflow-hidden">Speech</div>
+              <div className="text-[10px] font-medium leading-tight">Ngôn ngữ</div>
             </div>
           </div>
         </Card>

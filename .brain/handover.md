@@ -1,107 +1,30 @@
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📋 HANDOVER DOCUMENT - DOTQUY.NHANH
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# 📋 HANDOVER DOCUMENT - DOTQUY.NHANH
 
-📅 Ngày: 2026-02-05 00:03
-📍 Phiên bản: v0.2.1 (Clean)
+📍 **Đang làm**: Tích hợp trang Quản trị (Admin Dashboard)
+🔢 **Đến bước**: Khởi tạo Solo Builder Phase 1 (Research & Plan) cho Giải pháp 3 (Supabase)
 
----
+✅ **ĐÃ XONG**:
+- Loại bỏ toàn bộ chức năng gọi 115 trực tiếp (`tel:115`) và các nút bấm liên quan.
+- Cập nhật Header: Đổi logo thành "TEST ĐỘT QUỴ NGAY", xóa menu "Trang chủ", thêm menu "Kinh nghiệm thực tế".
+- Trang chủ: Thêm bản dịch tiếng Việt cho các dấu hiệu BE FAST, đổi nút bắt đầu thành Link dẫn sang `/fast`.
+- Trang kinh nghiệm: Tạo giao diện 3 cột hiển thị các bài viết chia sẻ thực tế (Bà nội bị đột quỵ, BV Bạch Mai).
+- Vô hiệu hóa `FloatingCallButton`.
 
-## ✅ ĐÃ HOÀN THÀNH:
+⏳ **CÒN LẠI**:
+- Thiết kế Database Schema trên Supabase cho bảng `articles`.
+- Xây dựng trang Login Admin (Supabase Auth).
+- Xây dựng trang Dashboard để CRUD bài viết kinh nghiệm.
+- Kết nối trang `/experience` với dữ liệu thực từ Supabase.
 
-### Session 2026-02-04/05:
-1. ✅ Simplification v0.2.0
-   - Xóa province selector
-   - Xóa local emergency numbers
-   - Hardcode số 115
-   
-2. ✅ UI Fixes
-   - Fixed Header overlay (backdrop-blur)
-   - Fixed Footer bị che (pb-32)
-   - Fixed BottomNav safe-area
+🔧 **QUYẾT ĐỊNH QUAN TRỌNG**:
+- **Giải pháp 3**: Sử dụng Supabase để quản lý bài viết giúp đăng bài linh hoạt và hiển thị real-time.
+- **Emergency-first**: Giảm thiểu các thao tác gây nhầm lẫn (như nút gọi giả lập) để tập trung vào hướng dẫn thực tế.
 
-3. ✅ Responsive Testing
-   - 320px (iPhone SE) ✓
-   - 375px (iPhone X) ✓
-   - 768px (Tablet) ✓
-   - 1024px (Desktop) ✓
-   - 1920px (Large) ✓
-   - Grade: A-
-
-4. ✅ Deep Clean v0.2.1
-   - Xóa Supabase code
-   - Xóa dead components
-   - Simplified utilities
-   - Build passed ✓
-
-5. ✅ Audit
-   - Critical: 0
-   - All warnings fixed
-
----
-
-## 🔧 QUYẾT ĐỊNH QUAN TRỌNG:
-
-| Quyết định | Lý do |
-|------------|-------|
-| Xóa Supabase | Không cần database cho MVP |
-| Hardcode 115 | Tốc độ, không phụ thuộc mạng |
-| Xóa TimeRecorder | Không thiết yếu cho MVP |
-| Giữ mobile UI @ 768px | Hoạt động tốt trên tablet |
-
----
-
-## 📁 CẤU TRÚC HIỆN TẠI:
-
-```
-src/
-├── app/
-│   ├── page.tsx         # Homepage
-│   ├── fast/            # BE FAST wizard
-│   ├── call-script/     # Call script generator
-│   ├── what-to-do-now/  # DO/DON'T guide
-│   ├── emergency/       # Emergency info
-│   ├── offline/         # PWA offline
-│   └── layout.tsx       # Root layout
-├── components/
-│   ├── ui/              # Button, Card, Badge...
-│   ├── layout/          # Header, BottomNav, DisclaimerFooter
-│   ├── emergency/       # FloatingCallButton, EmergencyBanner, DoDoNotList
-│   └── fast/            # FastWizard
-└── lib/
-    └── utils/           # storage, time, phone (simplified)
-```
-
----
-
-## ⏭️ BƯỚC TIẾP THEO:
-
-1. 🚀 **Deploy to Production**
-   - `npm run build` ✅ (đã pass)
-   - Deploy to Vercel
-   - Configure domain
-
-2. 📱 **PWA Icons**
-   - Generate PNG icons (192x192, 512x512)
-   - Update manifest.json
-
-3. 🧪 **Real Device Testing**
-   - Test on actual phones
-   - Test offline mode
-
----
-
-## 📊 QUICK STATS:
-
-| Metric | Value |
-|--------|-------|
-| Routes | 8 static |
-| Components | ~15 |
-| Build time | ~2s |
-| Dead code | 0 |
-| Critical issues | 0 |
-
----
+📁 **FILES QUAN TRỌNG**:
+- `src/app/experience/page.tsx`: Cấu trúc trang chia sẻ kinh nghiệm.
+- `src/components/layout/Header.tsx`: Cập nhật logo và menu mới.
+- `src/app/page.tsx`: Giao diện trang chủ mới.
+- `.gemini/GEMINI.md`: File phục hồi ngữ cảnh cho Solo Builder.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📍 Đã lưu! Để tiếp tục: Gõ /recap

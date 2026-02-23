@@ -25,18 +25,11 @@ export default function NotFound() {
                     >
                         Về trang chủ
                     </Link>
-
-                    <a
-                        href="tel:115"
-                        className="px-6 py-3 bg-[--emergency-red] text-white rounded-xl font-bold shadow-md hover:bg-[--emergency-red-dark] transition-colors"
-                    >
-                        📞 Gọi 115
-                    </a>
                 </div>
 
                 {/* Emergency reminder */}
                 <p className="mt-8 text-sm text-[--muted-foreground]">
-                    Nếu bạn cần cấp cứu, hãy gọi <strong>115</strong> ngay!
+                    Nếu bạn có dấu hiệu đột quỵ, hãy đi cấp cứu ngay!
                 </p>
             </div>
         </div>

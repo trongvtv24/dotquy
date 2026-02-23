@@ -35,21 +35,5 @@ export function FloatingCallButton({
           ${mode === 'floating' ? 'animate-pulse' : ''}
     `
 
-    return (
-        <div className={wrapperClass}>
-            <a
-                href={telLink}
-                className={buttonClass}
-                aria-label="Gọi cấp cứu 115"
-            >
-                <span className="text-3xl">📞</span>
-                <span className="flex flex-col items-start leading-tight">
-                    <span className="text-sm font-normal opacity-90">GỌI CẤP CỨU</span>
-                    <span className="text-2xl">115</span>
-                </span>
-            </a>
-
-
-        </div>
-    )
+    return null;
 }

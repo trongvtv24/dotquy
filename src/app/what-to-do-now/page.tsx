@@ -24,14 +24,11 @@ export default function WhatToDoNowPage() {
             {/* Priority Alert */}
             <div className="bg-[--emergency-red] text-white rounded-xl p-4 mb-6 text-center">
                 <p className="text-lg font-bold mb-1">
-                    🚨 VIỆC ĐẦU TIÊN: GỌI CẤP CỨU
+                    🚨 VIỆC ĐẦU TIÊN: ĐI CẤP CỨU
                 </p>
                 <p className="text-sm opacity-90">
-                    Gọi 115 ngay lập tức
+                    Đến cơ sở y tế gần nhất ngay lập tức
                 </p>
-                <a href="tel:115" className="inline-block mt-3 bg-white text-[--emergency-red] px-6 py-2 rounded-lg font-bold">
-                    📞 Gọi 115 ngay
-                </a>
             </div>
 
             {/* DO / DON'T Full List */}

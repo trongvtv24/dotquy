@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { Button } from '@/components/ui'
+import Link from 'next/link'
 import { getFastAnswers, setFastAnswers, clearFastAnswers, type FastAnswers } from '@/lib/utils/storage'
 
 // BE FAST steps configuration
@@ -152,10 +153,10 @@ export function FastWizard({ onComplete, className = '' }: FastWizardProps) {
                 font-bold text-lg
                 transition-all
                 ${isCurrent
-                                    ? 'bg-[--emergency-red] text-white scale-110'
+                                    ? 'bg-[var(--emergency-red)] text-white scale-110'
                                     : isAnswered
                                         ? answer
-                                            ? 'bg-red-100 text-[--emergency-red] border-2 border-[--emergency-red]'
+                                            ? 'bg-red-100 text-[var(--emergency-red)] border-2 border-[var(--emergency-red)]'
                                             : 'bg-green-100 text-green-600 border-2 border-green-600'
                                         : 'bg-[--muted] text-[--muted-foreground]'
                                 }
@@ -175,7 +176,7 @@ export function FastWizard({ onComplete, className = '' }: FastWizardProps) {
                 <p className="text-lg text-[--foreground] mb-4">
                     {currentStepData.question}
                 </p>
-                <p className="text-sm text-[--muted-foreground]">
+                <p className="text-sm text-[var(--emergency-red)] font-bold">
                     💡 {currentStepData.description}
                 </p>
             </div>
@@ -255,23 +256,23 @@ function FastResult({ hasPositive, positiveCount, onRestart }: FastResultProps) 
                             PHÁT HIỆN {positiveCount} DẤU HIỆU
                         </h2>
                         <p className="text-lg opacity-90">
-                            Có dấu hiệu nghi ngờ đột quỵ. Gọi cấp cứu NGAY!
+                            Có dấu hiệu nghi ngờ đột quỵ. Hãy đi cấp cứu NGAY!
                         </p>
                     </div>
 
-                    <a
-                        href="tel:115"
+                    <Link
+                        href="/call-script"
                         className="
               w-full
-              bg-[--emergency-red] hover:bg-[--emergency-red-dark]
+              bg-[--primary] hover:opacity-90
               text-white font-bold text-xl
               py-5 px-8 rounded-xl
               inline-flex items-center justify-center gap-3
               shadow-xl mb-4 min-h-[64px]
             "
                     >
-                        📞 GỌI 115 NGAY
-                    </a>
+                        📞 Nói gì khi gọi cấp cứu?
+                    </Link>
 
                     <p className="text-[--muted-foreground] mb-4">
                         Mỗi phút trì hoãn có thể gây tổn thương não vĩnh viễn.
