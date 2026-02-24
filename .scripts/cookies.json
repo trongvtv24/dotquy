@@ -1,0 +1,121 @@
+{
+    "url": "https://supabase.com",
+    "cookies": [
+        {
+            "domain": ".supabase.com",
+            "expirationDate": 1805213468.844603,
+            "hostOnly": false,
+            "httpOnly": false,
+            "name": "_ga",
+            "path": "/",
+            "sameSite": "unspecified",
+            "secure": false,
+            "session": false,
+            "storeId": "0",
+            "value": "GA1.1.727935865.1768826445"
+        },
+        {
+            "domain": ".supabase.com",
+            "expirationDate": 1805216268.748287,
+            "hostOnly": false,
+            "httpOnly": true,
+            "name": "FPID",
+            "path": "/",
+            "sameSite": "unspecified",
+            "secure": true,
+            "session": false,
+            "storeId": "0",
+            "value": "FPID2.2.uVOEAiD8Ay50i3am%2FXAmpQGSR1PBrj2l1V9gpwiNbjc%3D.1768826445"
+        },
+        {
+            "domain": ".supabase.com",
+            "expirationDate": 1776602447.063224,
+            "hostOnly": false,
+            "httpOnly": false,
+            "name": "FPAU",
+            "path": "/",
+            "sameSite": "unspecified",
+            "secure": true,
+            "session": false,
+            "storeId": "0",
+            "value": "1.2.1390122665.1768826447"
+        },
+        {
+            "domain": ".supabase.com",
+            "expirationDate": 1803485743,
+            "hostOnly": false,
+            "httpOnly": false,
+            "name": "__stripe_mid",
+            "path": "/",
+            "sameSite": "strict",
+            "secure": true,
+            "session": false,
+            "storeId": "0",
+            "value": "6ab8ebc5-1c60-4ba1-974e-e7a101ce183c7c72ec"
+        },
+        {
+            "domain": ".supabase.com",
+            "expirationDate": 1805216372.295078,
+            "hostOnly": false,
+            "httpOnly": false,
+            "name": "_ga_7811VTCM91",
+            "path": "/",
+            "sameSite": "unspecified",
+            "secure": false,
+            "session": false,
+            "storeId": "0",
+            "value": "GS2.1.s1770656268$o18$g1$t1770656372$j60$l0$h1008756331"
+        },
+        {
+            "domain": ".supabase.com",
+            "expirationDate": 1771951502.251119,
+            "hostOnly": false,
+            "httpOnly": true,
+            "name": "__cf_bm",
+            "path": "/",
+            "sameSite": "unspecified",
+            "secure": true,
+            "session": false,
+            "storeId": "0",
+            "value": "z6o94elWtjuUHUbi7l6IC5wr5lAIWKfgLXAiv7xq_hU-1771949702.4240317-1.0.1.1-N4D8y8ncbRiQKmO_uRlPYVxG5rTfPGSkB.q7DFFtipJVfEoQ90XcNi.O7L6D1peiv0PkSIMjfKnmMhlzE9LEdWkYynGtdPC.oozFfKXcTx9lseetvahXlT6dQ24nM13y"
+        },
+        {
+            "domain": ".supabase.com",
+            "hostOnly": false,
+            "httpOnly": false,
+            "name": "session_id",
+            "path": "/",
+            "sameSite": "lax",
+            "secure": false,
+            "session": true,
+            "storeId": "0",
+            "value": "019c906e-c8e1-721e-96d7-fc2d85beb4db"
+        },
+        {
+            "domain": ".supabase.com",
+            "expirationDate": 1771951543,
+            "hostOnly": false,
+            "httpOnly": false,
+            "name": "__stripe_sid",
+            "path": "/",
+            "sameSite": "strict",
+            "secure": true,
+            "session": false,
+            "storeId": "0",
+            "value": "3f0510aa-7005-4c0a-8eea-a79dcd1413d58af8f2"
+        },
+        {
+            "domain": ".supabase.com",
+            "expirationDate": 1803485739,
+            "hostOnly": false,
+            "httpOnly": false,
+            "name": "ph_phc_q2wUqNSr9AsKvH56PBbg9RX5dGKypQZi1gxk3cuSXJ5_posthog",
+            "path": "/",
+            "sameSite": "lax",
+            "secure": true,
+            "session": false,
+            "storeId": "0",
+            "value": "%7B%22distinct_id%22%3A%22a920cad4-195b-455e-a7c8-1a10eae741d2%22%2C%22%24sesid%22%3A%5B1771949739901%2C%22019c906e-c8e1-721e-96d7-fc2d85beb4db%22%2C1771949705441%5D%2C%22%24epp%22%3Atrue%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22https%3A%2F%2Fsupabase.com%2F%22%2C%22u%22%3A%22https%3A%2F%2Fsupabase.com%2Fdashboard%2Fsign-in%3FreturnTo%3D%252Forg%22%7D%7D"
+        }
+    ]
+}
