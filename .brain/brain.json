@@ -17,10 +17,12 @@
         "BE FAST Stroke Assessment Wizard",
         "Emergency Call Script Generator",
         "PWA Offline Support",
-        "Real-world Experience Sharing (CMS pending)"
+        "Real-world Experience Sharing (CMS pending)",
+        "User Comments for Articles (with RLS, length sync)"
     ],
     "decisions": [
         "Removed direct 115 calling functionality to prioritize guided action.",
-        "Using Supabase for article management (Solution 3)."
+        "Using Supabase for article management (Solution 3).",
+        "Implemented real-time client-side word count (max 500 chars) for comments. Saved user details inside cookies/storage."
     ]
 }

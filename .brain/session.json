@@ -1,15 +1,16 @@
 {
-    "updated_at": "2026-02-24T22:15:00Z",
+    "updated_at": "2026-02-24T23:45:00Z",
     "working_on": {
-        "feature": "Admin Dashboard",
-        "task": "Initializing Solo Builder Phase 1 for Supabase Integration",
-        "status": "Resumed - Ready to start"
+        "feature": "Experience Comments",
+        "task": "User can add comments to experience articles",
+        "status": "Completed"
     },
     "recent_changes": [
-        "Removed all 115 call buttons and tel links.",
-        "Updated Logo to 'TEST ĐỘT QUỴ NGAY' and refined navigation.",
-        "Added Vietnamese labels to BE FAST homepage icons.",
-        "Created static version of Experience page."
+        "Created dynamic slug page for individual experience articles.",
+        "Created experiences static data file.",
+        "Created CommentsSection UI component with Supabase DB integration & client limits.",
+        "Created SQL migrations for comments table & set up RLS policies.",
+        "Set up local Supabase env connection (URL & Auth)"
     ],
     "pending_tasks": [
         "Setup Supabase Schema",

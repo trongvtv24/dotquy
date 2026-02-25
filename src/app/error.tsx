@@ -27,8 +27,8 @@ export default function Error({
                 </h1>
 
                 {/* Description */}
-                <p className="text-[--muted-foreground] mb-8 max-w-md mx-auto">
-                    Xin lỗi, có lỗi khi tải trang. Vui lòng thử lại.
+                <p className="text-[--muted-foreground] mb-8 max-w-md mx-auto whitespace-pre-wrap text-red-500 font-mono">
+                    Xin lỗi, có lỗi khi tải trang: {error.message}
                 </p>
 
                 {/* Actions */}

@@ -122,10 +122,8 @@ export default async function ExperienceArticlePage({ params }: PageProps) {
                 <p className="text-[--muted-foreground] mb-6">
                     Mỗi câu chuyện là một bài học quý giá giúp cộng đồng phòng tránh và xử lý đột quỵ tốt hơn.
                 </p>
-                <Link href="/">
-                    <button className="px-8 py-3 bg-[--foreground] text-[--background] rounded-xl font-bold hover:opacity-90 transition-opacity">
-                        Về trang chủ
-                    </button>
+                <Link href="/" className="inline-block px-8 py-3 bg-[--foreground] text-[--background] rounded-xl font-bold hover:opacity-90 transition-opacity">
+                    Về trang chủ
                 </Link>
             </div>
         </div>

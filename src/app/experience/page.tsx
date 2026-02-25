@@ -62,10 +62,8 @@ export default function ExperiencePage() {
                 <p className="text-[--muted-foreground] mb-6">
                     Những kinh nghiệm quý báu của bạn có thể giúp ích cho rất nhiều gia đình khác trong lúc hoạn nạn.
                 </p>
-                <Link href="/">
-                    <button className="px-8 py-3 bg-[--foreground] text-[--background] rounded-xl font-bold hover:opacity-90 transition-opacity">
-                        Quay lại trang chính
-                    </button>
+                <Link href="/" className="inline-block px-8 py-3 bg-[--foreground] text-[--background] rounded-xl font-bold hover:opacity-90 transition-opacity">
+                    Quay lại trang chính
                 </Link>
             </div>
         </div>
